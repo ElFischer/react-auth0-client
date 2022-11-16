@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const ExternalApi = () => {
   const [message, setMessage] = useState('');
-  const serverUrl = 'http://wp.artelocal.eu/api/menu/items';
+  const serverUrl = 'https://wp.artelocal.eu/api/menu/items';
 
   const { getAccessTokenSilently } = useAuth0();
 
