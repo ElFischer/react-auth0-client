@@ -13,7 +13,7 @@ const ExternalApi = () => {
 
       const responseData = await response.json();
       console.log(responseData)
-      setMessage(responseData);
+      setMessage(responseData.inner.message);
     } catch (error) {
       setMessage(error.message);
     }
@@ -64,13 +64,12 @@ const ExternalApi = () => {
           Get Protected Message
         </button>
       </div>
-      
       {message && (
         <div className="mt-5">
           <h6 className="muted">Result</h6>
           <div className="container-fluid">
             <div className="row">
-              <code className="col-12 text-light bg-dark p-4">{message.toString()}</code>
+              <code className="col-12 text-light bg-dark p-4">{JSON.stringify(message)}</code>
             </div>
           </div>
         </div>
