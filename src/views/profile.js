@@ -17,7 +17,7 @@ const Profile = () => {
           />
         </div>
         <div className="col-md text-center text-md-left">
-          <h2>{name}</h2>
+          <h2>{name} NAME</h2>
           <p className="lead text-muted">{email}</p>
         </div>
       </div>
