@@ -39,6 +39,27 @@ const ExternalApi = () => {
       setMessage(error.message);
     }
   };
+  const serverUrl2 = 'https://wp.artelocal.eu/api/menu/items';
+  const callSecureApi2 = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `${serverUrl2}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      const responseData = await response.json();
+      console.log(responseData)
+      setMessage(responseData);
+    } catch (error) {
+      setMessage(error.message);
+    }
+  };
 
   return (
     <div className="container">
@@ -62,6 +83,13 @@ const ExternalApi = () => {
           onClick={callSecureApi}
         >
           Get Protected Message
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={callSecureApi2}
+        >
+          Get Protected Message 2
         </button>
       </div>
       {message && (
