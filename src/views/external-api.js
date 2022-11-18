@@ -71,26 +71,36 @@ const ExternalApi = () => {
       </p>
       <div
         className="btn-group mt-5"
+        style={{ display: "block" }}
         role="group"
         aria-label="External API Requests Examples"
       >
-        <button type="button" className="btn btn-primary" onClick={callApi}>
-          Get Public Message
-        </button>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={callSecureApi}
-        >
-          Get Protected Message
-        </button>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={callSecureApi2}
-        >
-          Get Protected Message 2
-        </button>
+        <div style={{ display: "flex" }}>
+          <button type="button" className="btn btn-primary" style={{ margin: "5px", flex: "1 0 50%" }} onClick={callApi}>
+            Get Public https://test.caseos.de/api/caseos/defaults
+          </button>
+          <button
+            type="button"
+            style={{ margin: "5px", flex: "1 0 50%" }}
+            className="btn btn-primary"
+            onClick={callSecureApi}
+          >
+            Get Protected https://test.caseos.de/api/caseos/defaults
+          </button>
+        </div>
+        <div style={{ display: "flex" }}>
+          <button type="button" className="btn btn-primary" style={{ margin: "5px", flex: "1 0 50%", 'background-color': "rgb(110 110 110)" }} onClick={callApi}>
+            Get Public https://wp.artelocal.eu/api/menu/items
+          </button>
+          <button
+            type="button"
+            style={{ margin: "5px", flex: "1 0 50%", 'background-color': "rgb(110 110 110)" }}
+            className="btn btn-primary"
+            onClick={callSecureApi2}
+          >
+            Get Protected https://wp.artelocal.eu/api/menu/items
+          </button>
+        </div>
       </div>
       {message && (
         <div className="mt-5">
