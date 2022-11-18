@@ -40,6 +40,17 @@ const ExternalApi = () => {
     }
   };
   const serverUrl2 = 'https://wp.artelocal.eu/api/menu/items';
+  const callApi2 = async () => {
+    try {
+      const response = await fetch(`${serverUrl}`);
+
+      const responseData = await response.json();
+      console.log(responseData)
+      setMessage(responseData.inner.message);
+    } catch (error) {
+      setMessage(error.message);
+    }
+  };
   const callSecureApi2 = async () => {
     try {
       const token = await getAccessTokenSilently();
@@ -89,7 +100,7 @@ const ExternalApi = () => {
           </button>
         </div>
         <div style={{ display: "flex" }}>
-          <button type="button" className="btn btn-primary" style={{ margin: "5px", flex: "1 0 50%", 'background-color': "rgb(110 110 110)" }} onClick={callApi}>
+          <button type="button" className="btn btn-primary" style={{ margin: "5px", flex: "1 0 50%", 'background-color': "rgb(110 110 110)" }} onClick={callApi2}>
             Get Public https://wp.artelocal.eu/api/menu/items
           </button>
           <button
