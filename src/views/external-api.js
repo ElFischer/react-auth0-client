@@ -42,7 +42,7 @@ const ExternalApi = () => {
   const serverUrl2 = 'https://wp.artelocal.eu/api/menu/items';
   const callApi2 = async () => {
     try {
-      const response = await fetch(`${serverUrl}`);
+      const response = await fetch(`${serverUrl2}`);
 
       const responseData = await response.json();
       console.log(responseData)
@@ -57,6 +57,39 @@ const ExternalApi = () => {
 
       const response = await fetch(
         `${serverUrl2}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      const responseData = await response.json();
+      console.log(responseData)
+      setMessage(responseData);
+    } catch (error) {
+      setMessage(error.message);
+    }
+  };
+
+  const serverUrl3 = 'http://104.248.36.102:3001/ingredients';
+  const callApi3 = async () => {
+    try {
+      const response = await fetch(`${serverUrl3}`);
+
+      const responseData = await response.json();
+      console.log(responseData)
+      setMessage(responseData.inner.message);
+    } catch (error) {
+      setMessage(error.message);
+    }
+  };
+  const callSecureApi3 = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+
+      const response = await fetch(
+        `${serverUrl3}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -110,6 +143,19 @@ const ExternalApi = () => {
             onClick={callSecureApi2}
           >
             Get Protected https://wp.artelocal.eu/api/menu/items
+          </button>
+        </div>
+        <div style={{ display: "flex" }}>
+          <button type="button" className="btn btn-primary" style={{ margin: "5px", flex: "1 0 50%", 'background-color': "rgb(110 110 110)" }} onClick={callApi3}>
+            Get Public http://104.248.36.102:3001/ingredients
+          </button>
+          <button
+            type="button"
+            style={{ margin: "5px", flex: "1 0 50%", 'background-color': "rgb(110 110 110)" }}
+            className="btn btn-primary"
+            onClick={callSecureApi3}
+          >
+            Get Protected http://104.248.36.102:3001/ingredients
           </button>
         </div>
       </div>
