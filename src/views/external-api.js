@@ -72,7 +72,7 @@ const ExternalApi = () => {
     }
   };
 
-  const serverUrl3 = 'http://104.248.36.102:3001/ingredients';
+  const serverUrl3 = 'https://test.devsrow.de/caseos/defaults';
   const callApi3 = async () => {
     try {
       const response = await fetch(`${serverUrl3}`);
@@ -147,7 +147,7 @@ const ExternalApi = () => {
         </div>
         <div style={{ display: "flex" }}>
           <button type="button" className="btn btn-primary" style={{ margin: "5px", flex: "1 0 50%", 'background-color': "rgb(110 110 110)" }} onClick={callApi3}>
-            Get Public http://104.248.36.102:3001/ingredients
+            Get Public https://test.devsrow.de/caseos/defaults
           </button>
           <button
             type="button"
@@ -155,7 +155,7 @@ const ExternalApi = () => {
             className="btn btn-primary"
             onClick={callSecureApi3}
           >
-            Get Protected http://104.248.36.102:3001/ingredients
+            Get Protected https://test.devsrow.de/caseos/defaults
           </button>
         </div>
       </div>
